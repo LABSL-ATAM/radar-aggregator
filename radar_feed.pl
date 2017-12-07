@@ -4,13 +4,14 @@
 ######################################################################
 use strict;
 #use warnings;
-use autodie;
+#use autodie;
 use feature         "say";
 use POSIX           "strftime";
 use Getopt::Std;
 use Pod::Usage;
 use Data::Dumper;
-use File::Slurp     qw(read_file write_file);
+#use File::Slurp     qw(read_file write_file);
+use File::Slurper     qw(read_lines write_text);
 
 #pal rss
 use XML::FeedPP;
@@ -56,7 +57,8 @@ my %RSS             = ();
 my @HOY             = ();
 my $hoy             = DateTime->now(@_)->truncate( to => 'minute' );
 my @feed_categories_gral = ();
-
+# my $orden = 0;
+my $hitler_patinando_en_skate = 0;
 
 ######################################################################
 # M A I N
@@ -75,8 +77,8 @@ if ($opts{f}){
 my $rss_out = XML::FeedPP::RSS->new();
 my $w3m_ahora = DateTime::Format::W3CDTF->new;
 my $tw3 = $w3m_ahora->format_datetime($hoy);
-$rss_out->title("Radar de noticias - ATAM");
-$rss_out->link("http://multimediales.com.ar");
+$rss_out->title("RAM | Radar de noticias de Artes Multimediales");
+$rss_out->link("https://multimediales.com.ar");
 $rss_out->pubDate($tw3);
 #Las entradas se agregan desde url_getter
 
@@ -111,7 +113,7 @@ my $archivo_salida_hoy = 'hoy.json';
 my $estado_backup = archivear_el_de_ayer();
 if ($estado_backup eq 'si' || $debug){
     say "Se movio el archivo de ayer!";
-    write_file($archivo_salida_hoy, { binmode => ':utf8' }, $AA);
+    write_text($archivo_salida_hoy,$AA);
     $rss_out->to_file("public/rss");
 }
 
@@ -124,8 +126,9 @@ exit 0;
 sub feeds_list {
 	my $file_name = shift;
 	my $n = 0;
-	my @datas = read_file($file_name, { binmode => ':utf8'});
+	my @datas = read_lines($file_name);
 	foreach my $ln (@datas){
+        next if ($ln =~ m/^#/g);
 		chomp($ln);
 		my @r = split(/,/,$ln);
 		#print Dumper(@r) if $debug;
@@ -149,9 +152,11 @@ Utiliza XML::FeedPP.
 
 sub url_getter {
 	foreach my $uri_rss (@uri_rss_all){
-		my $feed = XML::FeedPP->new($uri_rss);
+        say $uri_rss; # DEBUG
+		my $feed = XML::FeedPP->new($uri_rss) || next;
 		my $nro = 0;
         my @entries = ();
+        my $orden = 0;
 		for my $entry ($feed->get_item()){
 			print Dumper($entry) if $debug;
 		    my %entries_hoy = ();
@@ -170,9 +175,11 @@ sub url_getter {
 				$entries_hoy{'title'}   = decode_shits($entry->title);
 				$entries_hoy{'author'}  = decode_shits($entry->author);
 				$entries_hoy{'link'}    = decode_shits($entry->link);
-				$entries_hoy{'tag'}     = decode_shits($entry->category);
+                #my @tagsss = @$entry->category;
+				$entries_hoy{'tag'}     = $entry->category;
 				$entries_hoy{'content'} = decode_shits($entry->description);
 				$entries_hoy{'time'}    = tiempo_lindo($entry->pubDate);
+				$entries_hoy{'id'}      = $orden++;
                 #$entries_hoy{'feed_categories'} = $RSS{$uri_rss}; # ArrayRef !!
                 $es_de_hoy++;
                 # Guardar al feed de salida
@@ -191,10 +198,16 @@ sub url_getter {
             }
 		}
         if ($nro >= 1){
-            my %hash_pal_key = (    name =>$feed->title, url =>$feed->link, feed_categories => $RSS{$uri_rss}  );
+            my %hash_pal_key = ( 
+                name =>$feed->title, 
+                url =>$feed->link, 
+                categories => $RSS{$uri_rss},
+                id => $hitler_patinando_en_skate,
+            );
             $hash_pal_key{entries} = \@entries;
             my $HK = \%hash_pal_key;
             push (@HOY,$HK);
+            $hitler_patinando_en_skate++;
         }
 	}
 }
@@ -203,8 +216,8 @@ sub decode_shits {
 	my $shit = shift;
 	#my $coso_sin_codificar = XML::Entities::decode('all',XML::Entities::numify('all',decode_entities($shit)));
 	my $coso_sin_codificar  = XML::Entities::decode('all', decode_entities($shit));
-    my $puto  = 'Â';
-    $coso_sin_codificar     =~ s/\Q$puto\E//g;
+    #my $puto  = 'Â';
+    #$coso_sin_codificar     =~ s/\Q$puto\E//g;
 	return $coso_sin_codificar;
 }
 

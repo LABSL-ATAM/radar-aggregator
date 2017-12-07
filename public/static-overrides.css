@@ -1,0 +1,200 @@
+
+body{
+	font-family: "Roboto Mono", Courrier, monospace;
+}
+
+
+nav {
+	font-size: 1.1rem;
+	line-height: 1.6rem;
+}
+nav h1.title{
+	text-align: center;
+	padding-top: 3rem;
+}
+nav ul, nav p{
+	text-align: right;
+}
+nav ul{
+	margin-top: 142px;
+	text-align: right;
+}
+nav ul li{
+	list-style: none;
+	margin-bottom: .1rem;
+}
+
+.social{
+	/*text-align: right;*/
+}
+
+
+main > header{
+	padding-top: 100px;
+}
+
+section{
+	padding-top: 12rem;
+}
+
+
+article{
+
+	border-bottom: 1px solid #d3d3d3;
+	padding-top: 4.3rem;
+    margin: 11px 0;
+
+
+}
+
+article .content{
+	font-weight: 300;
+}
+
+a{
+	color: #007C85;
+}
+a.fancy, .content a{
+	background: 
+        linear-gradient(#fff,#fff),
+        linear-gradient(#fff,#fff),
+        linear-gradient(#007C85,#007C85)
+    ;
+	background-size: .05em 1px,.05em 1px,1px 1px;
+	background-repeat: no-repeat,no-repeat,repeat-x;
+	text-shadow: .03em 0 #fff,
+    -.03em 0 #fff,0 .03em #fff,
+    0 -.03em #fff,.06em 0 #fff,
+    -.06em 0 #fff,.09em 0 #fff,
+    -.09em 0 #fff,.12em 0 #fff,
+    -.12em 0 #fff,.15em 0 #fff,
+    -.15em 0 #fff;
+	background-position: 0 95%,100% 95%,0 95%;
+}
+
+.fecha{
+	font-weight: 100;
+}
+
+.content img{
+	display: block;
+	margin-bottom: 10px;
+	width: 100%;
+	height: auto;
+}
+
+.content > img {
+	display: none;
+}
+
+.content > img:nth-child(1){
+	display: block;
+
+}
+
+article > footer{
+	margin-top: 20px;
+	padding: 5px 0;
+	text-align: right;
+	/*background: #007C85;*/
+	/*color: white;*/
+}
+.cat{
+	font-weight: 500;
+}
+.subrrayado{
+	margin-bottom: 0px;
+	background: 
+        linear-gradient(#fff,#fff),
+        linear-gradient(#fff,#fff),
+        linear-gradient(#FAF2EA,#FAF2EA)
+    ;
+	background-size: 0px 0px,0px 0px,1px 10px;
+	background-repeat: 
+        no-repeat,
+        no-repeat,
+        repeat-x;
+	background-position: 0 52%;
+}
+.anchor a{
+	font-size: 2rem;
+	color: #d3d3d3;
+}
+.subtitulo{
+	font-size: 1.5rem;
+	padding-left: 2px;
+	font-weight: 100;
+	/*float: right;*/
+}
+
+
+body > footer{
+	padding:50px 0;
+    margin-top: 100px;
+    padding: 20px 0;
+    border-top: 1px solid gainsboro;
+    /*text-align: center;*/
+}
+
+
+/* ajuste relacion entre los titulos */
+h1 {
+	font-size: 7rem;
+	font-weight: 100;
+}
+h2 {
+	/*font-size: 3.8rem;*/ /* originalmente de h3 */
+	font-weight: 100;
+}
+h3 {
+	/*font-size: 3.6rem;*/ /* originalmente de h4 */
+	font-weight: 100;
+	letter-spacing: 0rem
+}
+h4{
+	font-size: 2.2rem; /* originalmente de h5 */
+	/*font-weight: 500;*/
+}
+
+
+/*  gutter  */
+
+.row .column {
+	margin-bottom: inherit;
+	padding: 0 2rem;
+}
+.share_submission{
+	display:none;
+}
+
+
+/* Ajustes Responsive */
+.pin-wrapper{
+    display:none
+}
+    .row .column.column-75{
+        width:100%;
+        max-width:100%;
+    }
+    main > header{
+        padding-top:20px;
+    }
+    main > header h2{
+        font-size:3rem;
+    }
+
+@media (min-width: 610px) {
+    .pin-wrapper{
+        display:block
+    }
+    .row .column.column-75{
+        width:75%;
+        max-width:75%;
+    }
+    main > header{
+        padding-top:100px;
+    }
+    main > header h2{
+        font-size:3rem;
+    }
+}

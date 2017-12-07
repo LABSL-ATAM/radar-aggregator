@@ -1,0 +1,25 @@
+<article id="{{ entry.title|slug }}">
+
+	<header>
+		<h4>
+			{% spaceless %}<a target="_BLANK" href="{{entry.link}}">{{entry.title}}</a>{% endspaceless %}
+			<span class="anchor">
+				<a id="id-{{ feed.id}}_{{entry.id}}" href="#{{entry.title|slug}}">#</a>
+			</span>
+		</h4>
+	</header>
+
+	<div class="content">
+		{{ entry.content|replace({'hspace="5"': ''})|raw}}
+	</div>
+
+	<footer>
+		<span class="fecha">en
+			<a target="_blank" href="{{ feed.url }}">
+				{{ feed.name|raw }}
+			</a>
+			{{entry.time|date("d/m/y H:i")}} 
+		</span>
+	</footer>
+
+</article>

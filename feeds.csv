@@ -1,35 +1,60 @@
-http://www.atamvirtual.com.ar/rss/file.php/23/30f8f887fa832b8241a2ddff3b2410d2/mod_forum/1/rss.xml,institucional
-http://createdigitalmusic.com/feed/,sonido,actualidad
-http://salonkritik.net/index.xml,arte,crítica
-http://www.dataisnature.com/?feed=rss2,arte
-http://www.datagenetics.com/feed/rss.xml,data
+http://www.atamvirtual.com.ar/rss/file.php/23/30f8f887fa832b8241a2ddff3b2410d2/mod_forum/1/rss.xml,ATAM
+http://createdigitalmusic.com/feed/,sonido
+# http://salonkritik.net/index.xml,crítica
+http://www.dataisnature.com/?feed=rss2,dataviz
+## http://www.datagenetics.com/feed/rss.xml,dataviz ## ESTE FALLA FEO MALO CACA! (js embebido en el Rss)
 http://xkcd.com/rss.xml,humor
 http://feeds.feedburner.com/well-formed_data,dataviz
 http://www.creativeapplications.net/feed/,multimedia
-http://what-if.xkcd.com/feed.atom,reflexión
-http://salonkritik.net/index.xml,arte
+http://what-if.xkcd.com/feed.atom,publicaciones
 http://www.fluid-radio.co.uk/feed/,sonido
-http://feeds2.feedburner.com/independentgaming,videogames
+http://feeds2.feedburner.com/independentgaming,videojuegos,
 http://feeds.feedburner.com/bookgraphics,imagen
-http://feeds.we-make-money-not-art.com/wmmna,arte
+http://we-make-money-not-art.com/feed/,instalationes
 http://www.flong.com/blog/feed/,referentes
-http://www.aec.at/news/en/feed/,arte,festivales
+http://www.aec.at/news/en/feed/,festivales
 http://feeds.feedburner.com/visualcomplexity,dataviz
 http://feeds.feedburner.com/colourlovers,imagen
-http://hackaday.com/blog/feed/,actualidad
-http://feeds.feedburner.com/gamasutraseriousnews,videogames
-http://feeds.infosthetics.com/infosthetics.com,dataviz
+# http://hackaday.com/blog/feed/,hacks,diy
+# http://feeds.feedburner.com/GamasutraNews,videogames
+#http://feeds.infosthetics.com/infosthetics.com,dataviz
 http://flowingdata.com/feed,dataviz
-http://createdigitalmusic.com/feed/,sonido
 http://feeds.feedburner.com/generatorx,dataviz
 http://shomeya.com/articles.rss,web
-http://feeds.feedburner.com/gestalten_tv,actualidad
+http://feeds.feedburner.com/gestalten_tv,miscelánea
 http://puredata.info/news/RSS,sonido
 http://feeds.feedburner.com/nodepond,sonido
-https://stallman.org/rss/rss.xml,reflexión
+# http://feeds.feedburner.com/TheRhizomeBlogRss,cultura-digital
 http://www.reddit.com/r/programming/.rss,programación
-http://boingboing.net/feed,miscelánea
 http://www.digicult.it/feed/atom/,actualidad
 http://www.futurefeeder.com/feed/,actualidad
-http://neural.it/feed/,actualidad
+http://neural.it/customfeed/articles_issues_microposts.php,actualidad
 http://www.andyjarrett.co.uk/rss/,referentes,web
+http://www.booooooom.com/feed/,miscelánea
+https://opensource.com/feed,código-abierto
+https://www.brainpickings.org/feed/,creatividad,miscelánea
+# http://benfry.com/writing/feed,referentes
+http://dma.ucla.edu/feed.php?type=news&format=rss,instituciones
+http://feeds.feedburner.com/Aulaelectroacustica?format=xml,música,español
+#https://blog.arduino.cc/feed,arduino
+http://feeds.feedburner.com/OpenCulture,cultura-abierta
+http://feeds.poetryfoundation.org/AvantGardeAllTheTime,poesía,español
+http://www.blogsandocs.com/?feed=rss2,publicaciones
+http://feeds2.feedburner.com/Art21Blog,educacion
+http://feeds2.feedburner.com/Art21BlogVideo,educacion,videos
+http://www.flong.com/blog/feed/,referentes
+http://www.cceba.org.ar/category/nuevas-tecnologias/feed/,instituciones,español
+http://feeds.arstechnica.com/arstechnica/open-source,tecnología,open-source
+http://www.thisiscolossal.com/feed/,diseño,imagen
+https://news.ycombinator.com/rss,miscelánea
+https://joeyh.name/blog/index.rss,referentes,sysadmin,debian
+https://usesthis.com/feed,setups
+### https://shuttleworthfoundation.org/feed,instituciones ## ESTE FALLA TAMBIEN (invalid sequence <link></head>)
+#http://www.advogato.org/rss/articles.xml,free-software,
+http://www.siggraph.org/rss.xml,noticias,imagen,CGI,eventos,conferencias
+http://www.nime.org/feed/,música,sonido,interfaces,congresos
+https://events.ccc.de/feed/,música,sonido,interfaces,congresos
+https://carlosazaustre.es/blog/rss/,webdev,español
+https://medium.com/feed/@BillSourour,@medium,carrera-laboral,web,js
+https://hueniverse.com/feed/,webdev,js
+http://spritesmods.com/rss.php,hacks,diy

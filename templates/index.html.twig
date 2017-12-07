@@ -1,296 +1,179 @@
 <!DOCTYPE html>
 <html lang="es">
-	<head>
+<head>
 
-		<meta charset="UTF-8" />
+	<meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	
 
+	<title>RAM | Radar de noticias de Artes Multimediales</title>
+ 	<link rel="shortcut icon" href="/favicon.ico"/>
 
+	<!-- Google Fonts -->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?
+			family=Roboto+Mono:400,100,300,400italic,500,700">
 
-		<title>RAM | Radar de noticias de Artes Multimediales</title>
-
-		<!-- Google Fonts -->
-		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,100,300,400italic,500,700">
-		<!-- CSS Reset -->
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.css" type="text/css">
-
-
-		<!-- Milligram CSS minified -->
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.1.0/milligram.min.css" type="text/css">
-		<!-- Milligram CSS minified -->
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.1.0/milligram.min.css.map" type="text/css">
-
-
-		<!-- RSS FEEDS!!!! Agregado el dia del trabajador. -->
-		<link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="http://multimediales.com.ar/rss">
+	
+	<!-- CSS Reset -->
+	<link rel="stylesheet" 
+		href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.css"
+		type="text/css">
 
 
+	<!-- Milligram CSS minified -->
+	<link rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.3.0/milligram.min.css"
+		type="text/css">
 
-		<style type="text/css">
-
-
-
-			body{
-				font-family: "Roboto Mono", Courrier, monospace;
-			}
-			nav{
-				/*padding-top: 15px;*/
-			}
-			nav ul li{
-				list-style: none;
-				font-size: 1rem;
-				/*margin-bottom: .5rem;*/
-				/*padding: 3px 0px;*/
-			}
-			nav a{
-				font-size: 1rem;
-			}
-			body > header,
-			section,
-			body > footer{
-				/*width: 680px;margin: 0px auto;*/
-			}
-			section{
-				/*margin-bottom: 100px;*/
-			}
-
-			article{
-				/*width: 680px;*/
-				margin: 40px 0;
-				border-bottom: 1px solid #d3d3d3;
-
-			}
-		/*	section article:last-child{
-				border-bottom-width: 0px;
-			}*/
-			article .content{
-				font-weight: 300;
-			}
-			header h4 {
-				font-weight: 700;
-			}
-			a{
-				color: #007C85;
-			}
-			.fecha{
-				font-weight: 100;
-			}
-			.content img{
-				display: block;
-				margin-bottom: 10px;
-				width: 100%;
-				height: auto;
-			}
-			article > footer{
-				margin-top: 20px;
-				padding: 5px 0;
-				text-align: right;
-				/*background: #007C85;*/
-				/*color: white;*/
-			}
-			.cat{
-				font-weight: 500;
-			}
-
-			.subrrayado{
-				border-bottom: 2px solid #d3d3d3;
-				padding-bottom: 5px;
-			}
-			.anchor a{
-				font-size: 2rem;
-				color: #d3d3d3;
-			}
-			/*.resaltado a,.resaltado {
-				color:red;
-			}*/
-			.subtitulo{
-				font-size: 2rem;
-				color: #007C85;
-				/*font-weight: 700;*/
-			}
-
-			body > footer{
-				padding:50px 0;
-			}
-			{# aca agrego css segun params #}
-			.{{ cats|join(', .') }}{
-				color: red;
-			}
+	<!-- Milligram CSS minified -->
+	<link rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.3.0/milligram.min.css.map"
+		type="text/css">
 
 
-			/*ajusterelacion entre los titulos*/
-			h2 {
-				font-size: 3.6rem; /*	originalmente de h3 */
-			}
-			h3 {
-				font-size: 3.2rem; /*	originalmente de h4 */
-			}
-			/*hevaa*/
-			.row{
-				height: 100%;
-			}
-			.column{
-				height: 100%;
-				background: #d3d3d3;
-			}
-			section{
-				background: white;
-				margin: 0px -1rem;
-				padding: 0px 1rem;
-				padding-bottom: 100px;
-			}
+	<!-- RSS FEEDS!!!! Agregado el dia del trabajador. -->
+	<link rel="alternate" type="application/rss+xml" 
+		title="RSS 2.0" 
+		href="https://multimediales.com.ar/rss">
 
-		</style>
 
-	</head>
+	<!-- Iconos -->
+	<link rel="stylesheet" href="icons/style.css" type="text/css">
 
-	<body class="container">
-			{{ cats|join(' -') }}
+	<!-- Static Overrides -->
+	<link rel="stylesheet" href="static-overrides.css" type="text/css">
 
-		<header>
+	<!-- Dynamic Overrides -->
+	{% include 'dynamic-overrides.css.twig' %}
 
-		</header >
 
-		<div class="row">
 
-			<div class="column column-25">
+</head>
 
-				<header class="pinned fondeado">
+<body class="container">
+
+	<div class="row">
+
+		<div class="column column-25">
+
+			<header class="pinned">
+			
 				<nav>
-					<h1>RAM</h1>
+					<h1 class="title"><a href="/">RAM</a></h1>
 
-					<ul><strong>Canales:</strong>
+					<ul class="menu canales"><strong>Canales:</strong>
 						{% for feed in feeds %}
 							<li>
-								<a class="{{ feed.feed_categories|join(' ') }}" title="{{ feed.url }}"
-									href="/#{{ feed.name|lower|replace({' ': '-'})|raw }}">
-									{{ feed.name|raw }}
-								</a> [{{ feed.entries|length }}]
+								{% spaceless %}<a
+									class="{{feed.categories|join(' ')}}"
+									title="{{feed.url}}"
+									href="/#{{feed.name|slug}}">
+									{{ feed.name|raw }}</a>
+									{% endspaceless %} [{{ feed.entries|length }}]
 							</li>
 						{% endfor %}
 					</ul>
 
+
+
+					<p class="menu categorias">
 					<strong>Categorias:</strong><br>
-					<p>
-						{% for cat in categories_main %}
-							<a  class="{{ cat|raw }}" href="/?categoria={{ cat|raw }}">
-							{{ cat|raw }}</a>
-						{% endfor %}
-						<br><br><br>
-					</p>
-
-				</nav>
-
-				</header>
-			</div> <!-- cierra .column-25 -->
-
-
-
-
-			<!-- <div class="column column-75"> -->
-
-
-				<main id="content" class="group column column-75" role="main">
-					<header>
-						<h2>Radar de noticias de Artes Multimediales</h2><br>
-						<p><small>Los contenidos a continuación fueron publicados en el día <em>
-						{# timestamp|localizeddate("J d \\d\\e M \\d\\e Y","none", locale) #}</em>
-						en sus respectivos canales, su recopilacion en esta página es sin fines de
-						lucro y no tiene otro motivo que la divulgación de temas ralacionados con
-						la carrera.</small></p>
-
-
-				</header >
-					{% for feed in feeds %}
-						{# filtro por categorias #}
-						{% for cat in cats %}
-							{% if cat in feed.feed_categories %}
-							<!-- pasar a tmpl y hacer bien el ifelse -->
-						<section
-							id="{{ feed.name|lower|replace({' ': '-'})|raw }}"
-							class="{{ entry.feed_categories|join(' ')|lower }}"
-						>
-
-							<header>
-								<h3 class="subrrayado">
-									<span class="name {# feed.feed_categories|join(' ')|escape  #}" >
-										{{ feed.name|raw }}
-									</span>
-									<span class="subtitulo">
-										[{{ feed.feed_categories|join(', ')|escape }}]
-									</span>
-								</h2>
-
-							</header>
-
-							{% for entry in feed.entries %}
-
-								<article id="{{ entry.title|lower|replace({' ': '-'})|raw  }}">
-
-									<header>
-
-										<h5>
-											<a target="_BLANK" href="{{entry.link}}">
-												{{entry.title}}
-											</a>
-											<span class="anchor">
-											<a href="#{{ entry.title|lower|replace({' ': '-'})|raw  }}">
-												#</a></span>
-
-										</h5>
-
-									</header>
-
-									<div class="content">
-										{{ entry.content|raw }}
-									</div>
-
-									<footer>
-										<span class="fecha">por
-											<a target="_blank" href="{{ feed.url }}">{{ feed.name|raw }}</a>
-											{{entry.time|date("d/m/y-H:i")}}</span>
-									</footer>
-
-								</article>
-
+						{% for cat in categories_main |sort %}
+							{# ver si tienen contenido	#}				
+							{% set estado = 'empty' %}
+							{% for feed in feeds %}
+								{% if cat in feed.categories %}
+									{% set estado = 'full' %}
+								{% endif %}
 							{% endfor %}
 
-						</section>
-							{% endif %}
+							{% spaceless %}
+								{% if estado == 'full' %}
+								<a  class="categoria {{ cat|raw }} {{estado}}" 
+									href="/?categoria={{ cat|raw }}">
+									{{ cat|raw }}</a>
+								{% else %}
+									<span class="categoria">{{ cat|raw }}</span>
+								{% endif %}
+							{% endspaceless %}
 						{% endfor %}
-					{% endfor %}
+					</p>
+					<p class="social">
+						<a href="/rss">
+							<span class="icon icon-rss"></span>
+						</a>
+						<a target="_blank" href="https://facebook.com/una.multimediales">
+							<span class="icon icon-facebook"></span>
+						</a>
+						<a target="_blank" href="https://twitter.com/UNAmultimedial">
+							<span class="icon icon-twitter"></span>
+						</a>
+					</p>
+					
+				</nav>
 
-				</main> <!-- cierra .column-75 -->
+			</header>
 
-			<!-- </div> --> <!-- cierra .column-75 -->
-
-		</div> <!-- cierra .row -->
-
-		<footer>
-			<a target="_BLANK" href="http://una.edu.ar/">
-				Universidad Nacional del las Artes
-			</a>
-			<br>
-			<a target="_BLANK" href="http://multimedia.una.edu.ar/">
-				Área Transdepartamental de Artes Multimediales
-			</a>
-		</footer>
-
-		<!-- Include jQuery and jquery.pin -->
-		<script
-			src="http://code.jquery.com/jquery-2.2.3.min.js"
-			integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo="
-			crossorigin="anonymous"></script>
-		<script src="https://cdn.jsdelivr.net/jquery.pin/1.0.3/jquery.pin.min.js">
-			</script>
+		</div> <!-- cierra .column-25 -->
 
 
-		<!-- PIN ALL THE THINGS! -->
-		<script>
-			$(".pinned").pin({containerSelector: ".row"});
-		</script>
-		<!-- That's all - pretty easy, right? -->
+		<main id="content" class="group column column-75" role="main">
 
-	</body>
+			<header>
+				<h2>Radar de noticias de Artes Multimediales</h2><br>
+				<p><small>Los artículos a continuación fueron publicados
+				en sus respectivos canales, el contenido del mismo y las opiniones
+				expresadas son de exclusiva responsabilidad de los autores; su
+				recopilación en esta página es sin fines de lucro y no tiene otro 
+				motivo que la divulgación de temas relacionados a la carrera.
+				{# timestamp|localizeddate("J d \\d\\e M \\d\\e Y","none", locale) #}
+				<br>
+				Estamos mejorando <a class="fancy" href="https://raw.githubusercontent.com/lifofernandez/radar-aggregator/nuevo/feeds.csv">la lista de canales</a>, 
+				por favor, si seguís algun blog interesante no dejes de sugerirlo.
+				</small></p>
+			</header >
+
+			{% for feed in feeds %}
+
+				{% for cat in cats %}
+					{% if ( cat in feed.categories ) or ( cat == "all" ) %}
+						
+						{% block section %}
+							{% include 'section.html.twig' %}
+						{% endblock %}
+
+					{% endif %}
+				{% endfor %}
+			{% endfor %}
+
+		</main> <!-- cierra .column-75 -->
+
+	</div> <!-- cierra .row -->
+
+	<footer>
+		
+			Universidad Nacional del las Artes /
+			Área Transdepartamental de Artes Multimediales
+		
+	</footer>
+
+	<!-- jQuery -->
+	<script
+		src="https://code.jquery.com/jquery-2.2.3.min.js"
+		integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo="
+		crossorigin="anonymous">
+	</script>
+
+	<!-- jquery.pin -->
+	<script
+		src="https://cdn.jsdelivr.net/jquery.pin/1.0.3/jquery.pin.min.js">
+	</script>
+
+	<script>
+		$(".pinned").pin({containerSelector: ".row"});
+	</script>
+
+</body>
 </html>
-
-

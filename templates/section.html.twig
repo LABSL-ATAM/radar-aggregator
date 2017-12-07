@@ -1,0 +1,29 @@
+<section
+	id="{{ feed.name|slug }}"
+	class="{{ entry.categories|join(' ')|lower }}">
+
+	<header>
+		<h3 class="subrrayado">{{ feed.name|raw }}</h3>
+		<span class="subtitulo">
+			<a target="_blank" href="{{feed.url}}">{{feed.url}}</a>
+			
+			    
+			
+			
+			[{% for cat in feed.categories %}{% spaceless %}
+				<a  class="categoria {{ cat|raw }}" 
+					href="/?categoria={{ cat|raw }}">{{cat|raw}}</a>
+					{% if cat != feed.categories|last %},{% endif %}	
+			{% endspaceless %}{% endfor %}]
+			
+		</span>
+	</header>
+
+	{% for entry in feed.entries %}
+		{% block article %}
+			{% include 'article.html.twig' %}
+		{% endblock %}
+
+	{% endfor %}
+
+</section>
