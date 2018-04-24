@@ -2,7 +2,7 @@ http://www.atamvirtual.com.ar/rss/file.php/23/30f8f887fa832b8241a2ddff3b2410d2/m
 http://createdigitalmusic.com/feed/,sonido
 # http://salonkritik.net/index.xml,crítica
 http://www.dataisnature.com/?feed=rss2,dataviz
-## http://www.datagenetics.com/feed/rss.xml,dataviz ## ESTE FALLA FEO MALO CACA! (js embebido en el Rss)
+## http://www.datagenetics.com/feed/rss.xml,dataviz ## JS embebido en el RSS
 http://xkcd.com/rss.xml,humor
 http://feeds.feedburner.com/well-formed_data,dataviz
 http://www.creativeapplications.net/feed/,multimedia
